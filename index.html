@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog JSONPlaceholder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sapps-studio/symbiosis-css/symbiosis.min.css">
+    <script src="node_modules/vue/dist/vue.global.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <main id="app">
+        <div class="container">
+            <h1>Blog JSONPlaceholder</h1>
+            <section class="article-list">
+                <article v-for="post in getPostPag()" :class="{'loading' : loading}">
+                    <h2>{{ post.title }}</h2>
+                    <footer v-if="users.length > 0">Author: {{ getNameUser(post.userId) }} </footer>
+                </article>
+                <div class="paginator">
+                    <button v-if="pag != 1" @click="prevPage()">⬅</button>
+                    <span>{{ pag }}</span>
+                    <button v-if="pag != totalPages" @click="nextPage()">➡</button>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,17 @@
+
+
+.container{
+    margin: 0 auto;
+    width: 800px;
+}
+
+.paginator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 2rem;
+}
+
+.loading {
+    filter: blur(5px);
+}
